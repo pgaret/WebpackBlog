@@ -3,9 +3,9 @@ import React from 'react'
 export default class Things extends React.Component {
   render(){
     return (
-      <div>
+      <p>
         <a href='#'>Things</a>
-      </div>
+      </p>
     )
   }
 }

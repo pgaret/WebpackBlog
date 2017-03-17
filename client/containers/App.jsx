@@ -6,7 +6,7 @@ import Header from '../components/Header.jsx'
 export default class App extends React.Component {
   render(){
     return (
-      <div>
+      <div id='app'>
         <Header />
         <Paragraph />
         <OtherContent />

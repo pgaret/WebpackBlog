@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
@@ -16,8 +17,12 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/}
+      {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/},
+      {test: /\.css$/, loader: 'style-loader!css-loader', exclude: /node_modules/}
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  plugins: [
+    HTMLWebpackPluginConfig,
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
+  ]
 }
